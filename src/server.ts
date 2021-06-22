@@ -1,15 +1,16 @@
 import express from "express";
+import "reflect-metadata";
+import { router } from "./routes";
+
 const PORT = 3000;
+
+import "./database";
 
 const app = express();
 
-app.get("/test", (req, res) => {
-  return res.send("Hello World");
-});
+app.use(express.json());
 
-app.post("/test-post", (req, res) => {
-  return res.send("Test method POST");
-});
+app.use(router);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
