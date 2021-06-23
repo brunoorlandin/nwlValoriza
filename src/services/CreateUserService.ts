@@ -1,5 +1,6 @@
 import { UsersRepositories } from "../repositories/UsersRepositories";
 import { getCustomRepository } from "typeorm";
+import { ErrorHandler } from "../classes/ErrorHandler";
 
 interface IUserRequest {
   name: string;
@@ -12,13 +13,27 @@ class CreateUserService {
     const usersRepository = getCustomRepository(UsersRepositories);
 
     if (!email) {
-      throw new Error("No matched email");
+      const err = {
+        name: 'UserEmailError',
+        statusCode: 400,
+        message: 'Invalid user email',
+        description: 'Empty User email. Please provide an email'
+      }
+
+      throw new ErrorHandler(err);
     }
 
     const userAlreadyExists = await usersRepository.findOne({ email });
 
     if (userAlreadyExists) {
-      throw new Error("User already exists");
+      const err = {
+        name: 'UserAlreadyExistsError',
+        statusCode: 400,
+        message: 'User already exists',
+        description: 'Please provide another username'
+      }
+
+      throw new ErrorHandler(err);
     }
 
     const user = usersRepository.create({
