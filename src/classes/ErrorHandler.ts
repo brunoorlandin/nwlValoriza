@@ -14,7 +14,6 @@ class ErrorHandler {
 
 
   constructor({ name, statusCode, message, description }: IErrorHandler) {
-    // super(message);
     this.name = name;
     this.statusCode = statusCode;
     this.message = message;
