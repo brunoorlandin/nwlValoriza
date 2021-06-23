@@ -23,15 +23,17 @@ Sistema para fazer elogio a outros usuários por meio de tags.
 ---
 
 ## Execução ✅
-```bash
 
 # Clone este repositório
-$ git clone https://github.com/brunoorlandin/nwlValoriza.git
-
+```bash
+git clone https://github.com/brunoorlandin/nwlValoriza.git
+```
 # Instalar dependencias da aplicação
-$ yarn install
-
+```bash
+yarn install
+```
 # Executar aplicação
+```bash
 $ yarn dev
 ```
 ## Rotas atuais do projeto: 
