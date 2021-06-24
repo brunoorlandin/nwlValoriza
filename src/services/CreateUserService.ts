@@ -1,6 +1,7 @@
 import { UsersRepositories } from "../repositories/UsersRepositories";
 import { getCustomRepository } from "typeorm";
 import { ErrorHandler } from "../classes/ErrorHandler";
+import { hash } from "bcryptjs";
 
 interface IUserRequest {
   name: string;
@@ -37,11 +38,13 @@ class CreateUserService {
       throw new ErrorHandler(err);
     }
 
+    const passwordHash = await hash(password, 8);
+
     const user = usersRepository.create({
       name,
       email,
       admin,
-      password
+      password: passwordHash
     });
 
     await usersRepository.save(user);
