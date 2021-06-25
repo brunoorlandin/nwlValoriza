@@ -73,9 +73,17 @@ $ yarn dev
  
 - [x] Não é permitido um usuário cadastrar um elogio para si
 
-- [ ] Não é permitido cadastrar elogios para usuários inválidos
+- [x] Não é permitido cadastrar elogios para usuários inválidos
 
-- [ ] O usuário precisar estar autenticado na aplicação
+- [x] O usuário precisar estar autenticado na aplicação
+
+Features extras 
+
+- [] Envio de email avisando que recebeu um elogio
+
+- [] Colocar projeto em produção
+
+- [] Criar front-end para aplicação
 
 ## Aula 1 - Liftoff - Criando projeto (Anotações 📝) <a name="class1"></a>
 
